@@ -12,37 +12,23 @@ type mongoHandlerDeprecated struct {
 }
 
 func NewMongoHandlerDeprecated(c *config) (*mongoHandlerDeprecated, error) {
-	session, err := mongo.DialWithTimeout(c.host, c.ctxTimeout)
-	if err != nil {
-		return &mongoHandlerDeprecated{}, err
-	}
-
-	handler := new(mongoHandlerDeprecated)
-	handler.session = session
-	handler.database = handler.session.DB(c.database)
-
-	return handler, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 func (mgo mongoHandlerDeprecated) Store(_ context.Context, collection string, data interface{}) error {
-	session := mgo.session.Clone()
-	defer session.Close()
-
-	return mgo.database.C(collection).With(session).Insert(data)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (mgo mongoHandlerDeprecated) Update(_ context.Context, collection string, query interface{}, update interface{}) error {
-	session := mgo.session.Clone()
-	defer session.Close()
-
-	return mgo.database.C(collection).With(session).Update(query, update)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (mgo mongoHandlerDeprecated) FindAll(_ context.Context, collection string, query interface{}, result interface{}) error {
-	session := mgo.session.Clone()
-	defer session.Close()
-
-	return mgo.database.C(collection).With(session).Find(query).All(result)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (mgo mongoHandlerDeprecated) FindOne(
@@ -52,8 +38,6 @@ func (mgo mongoHandlerDeprecated) FindOne(
 	selector interface{},
 	result interface{},
 ) error {
-	session := mgo.session.Clone()
-	defer session.Close()
-
-	return mgo.database.C(collection).With(session).Find(query).Select(selector).One(result)
+	_ = "STUB: not implemented"
+	return nil
 }

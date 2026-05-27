@@ -15,10 +15,6 @@ const (
 )
 
 func NewDatabaseNoSQLFactory(instance int) (repository.NoSQL, error) {
-	switch instance {
-	case InstanceMongoDB:
-		return NewMongoHandler(newConfigMongoDB())
-	default:
-		return nil, errInvalidNoSQLDatabaseInstance
-	}
+	_ = "STUB: not implemented"
+	return *new(repository.NoSQL), nil
 }

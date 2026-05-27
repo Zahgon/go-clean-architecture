@@ -9,41 +9,27 @@ type logrusLogger struct {
 	logger *logrus.Logger
 }
 
-func NewLogrusLogger() logger.Logger {
-	log := logrus.New()
-	log.SetFormatter(&logrus.JSONFormatter{
-		TimestampFormat: "2006-01-02 15:04:05",
-	})
+func NewLogrusLogger() logger.Logger { _ = "STUB: not implemented"; return *new(logger.Logger) }
 
-	return &logrusLogger{logger: log}
-}
+func (l *logrusLogger) Infof(format string, args ...interface{}) { _ = "STUB: not implemented"; return }
 
-func (l *logrusLogger) Infof(format string, args ...interface{}) {
-	l.logger.Infof(format, args...)
-}
-
-func (l *logrusLogger) Warnf(format string, args ...interface{}) {
-	l.logger.Warnf(format, args...)
-}
+func (l *logrusLogger) Warnf(format string, args ...interface{}) { _ = "STUB: not implemented"; return }
 
 func (l *logrusLogger) Errorf(format string, args ...interface{}) {
-	l.logger.Errorf(format, args...)
+	_ = "STUB: not implemented"
+	return
 }
 
-func (l *logrusLogger) Fatalln(args ...interface{}) {
-	l.logger.Fatalln(args...)
-}
+func (l *logrusLogger) Fatalln(args ...interface{}) { _ = "STUB: not implemented"; return }
 
 func (l *logrusLogger) WithFields(fields logger.Fields) logger.Logger {
-	return &logrusLogEntry{
-		entry: l.logger.WithFields(convertToLogrusFields(fields)),
-	}
+	_ = "STUB: not implemented"
+	return *new(logger.Logger)
 }
 
 func (l *logrusLogger) WithError(err error) logger.Logger {
-	return &logrusLogEntry{
-		entry: l.logger.WithError(err),
-	}
+	_ = "STUB: not implemented"
+	return *new(logger.Logger)
 }
 
 type logrusLogEntry struct {
@@ -51,38 +37,33 @@ type logrusLogEntry struct {
 }
 
 func (l *logrusLogEntry) Infof(format string, args ...interface{}) {
-	l.entry.Infof(format, args...)
+	_ = "STUB: not implemented"
+	return
 }
 
 func (l *logrusLogEntry) Warnf(format string, args ...interface{}) {
-	l.entry.Warnf(format, args...)
+	_ = "STUB: not implemented"
+	return
 }
 
 func (l *logrusLogEntry) Errorf(format string, args ...interface{}) {
-	l.entry.Errorf(format, args...)
+	_ = "STUB: not implemented"
+	return
 }
 
-func (l *logrusLogEntry) Fatalln(args ...interface{}) {
-	l.entry.Fatalln(args...)
-}
+func (l *logrusLogEntry) Fatalln(args ...interface{}) { _ = "STUB: not implemented"; return }
 
 func (l *logrusLogEntry) WithFields(fields logger.Fields) logger.Logger {
-	return &logrusLogEntry{
-		entry: l.entry.WithFields(convertToLogrusFields(fields)),
-	}
+	_ = "STUB: not implemented"
+	return *new(logger.Logger)
 }
 
 func (l *logrusLogEntry) WithError(err error) logger.Logger {
-	return &logrusLogEntry{
-		entry: l.entry.WithError(err),
-	}
+	_ = "STUB: not implemented"
+	return *new(logger.Logger)
 }
 
 func convertToLogrusFields(fields logger.Fields) logrus.Fields {
-	logrusFields := logrus.Fields{}
-	for index, field := range fields {
-		logrusFields[index] = field
-	}
-
-	return logrusFields
+	_ = "STUB: not implemented"
+	return *new(logrus.Fields)
 }

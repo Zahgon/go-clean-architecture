@@ -7,9 +7,7 @@ import (
 
 type TransferID string
 
-func (t TransferID) String() string {
-	return string(t)
-}
+func (t TransferID) String() string { _ = "STUB: not implemented"; return "" }
 
 type (
 	TransferRepository interface {
@@ -34,31 +32,19 @@ func NewTransfer(
 	amount Money,
 	createdAt time.Time,
 ) Transfer {
-	return Transfer{
-		id:                   ID,
-		accountOriginID:      accountOriginID,
-		accountDestinationID: accountDestinationID,
-		amount:               amount,
-		createdAt:            createdAt,
-	}
+	_ = "STUB: not implemented"
+	return *new(Transfer)
 }
 
-func (t Transfer) ID() TransferID {
-	return t.id
-}
+func (t Transfer) ID() TransferID { _ = "STUB: not implemented"; return *new(TransferID) }
 
-func (t Transfer) AccountOriginID() AccountID {
-	return t.accountOriginID
-}
+func (t Transfer) AccountOriginID() AccountID { _ = "STUB: not implemented"; return *new(AccountID) }
 
 func (t Transfer) AccountDestinationID() AccountID {
-	return t.accountDestinationID
+	_ = "STUB: not implemented"
+	return *new(AccountID)
 }
 
-func (t Transfer) Amount() Money {
-	return t.amount
-}
+func (t Transfer) Amount() Money { _ = "STUB: not implemented"; return *new(Money) }
 
-func (t Transfer) CreatedAt() time.Time {
-	return t.createdAt
-}
+func (t Transfer) CreatedAt() time.Time { _ = "STUB: not implemented"; return *new(time.Time) }

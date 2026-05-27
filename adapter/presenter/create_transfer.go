@@ -1,8 +1,6 @@
 package presenter
 
 import (
-	"time"
-
 	"github.com/gsabadini/go-clean-architecture/domain"
 	"github.com/gsabadini/go-clean-architecture/usecase"
 )
@@ -10,15 +8,11 @@ import (
 type createTransferPresenter struct{}
 
 func NewCreateTransferPresenter() usecase.CreateTransferPresenter {
-	return createTransferPresenter{}
+	_ = "STUB: not implemented"
+	return *new(usecase.CreateTransferPresenter)
 }
 
 func (c createTransferPresenter) Output(transfer domain.Transfer) usecase.CreateTransferOutput {
-	return usecase.CreateTransferOutput{
-		ID:                   transfer.ID().String(),
-		AccountOriginID:      transfer.AccountOriginID().String(),
-		AccountDestinationID: transfer.AccountDestinationID().String(),
-		Amount:               transfer.Amount().Float64(),
-		CreatedAt:            transfer.CreatedAt().Format(time.RFC3339),
-	}
+	_ = "STUB: not implemented"
+	return *new(usecase.CreateTransferOutput)
 }

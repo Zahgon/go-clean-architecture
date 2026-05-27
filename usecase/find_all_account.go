@@ -40,22 +40,12 @@ func NewFindAllAccountInteractor(
 	presenter FindAllAccountPresenter,
 	t time.Duration,
 ) FindAllAccountUseCase {
-	return findAllAccountInteractor{
-		repo:       repo,
-		presenter:  presenter,
-		ctxTimeout: t,
-	}
+	_ = "STUB: not implemented"
+	return *new(FindAllAccountUseCase)
 }
 
 // Execute orchestrates the use case
 func (a findAllAccountInteractor) Execute(ctx context.Context) ([]FindAllAccountOutput, error) {
-	ctx, cancel := context.WithTimeout(ctx, a.ctxTimeout)
-	defer cancel()
-
-	accounts, err := a.repo.FindAll(ctx)
-	if err != nil {
-		return a.presenter.Output([]domain.Account{}), err
-	}
-
-	return a.presenter.Output(accounts), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }

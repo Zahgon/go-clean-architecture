@@ -16,12 +16,6 @@ var (
 )
 
 func NewLoggerFactory(instance int) (logger.Logger, error) {
-	switch instance {
-	case InstanceZapLogger:
-		return NewZapLogger()
-	case InstanceLogrusLogger:
-		return NewLogrusLogger(), nil
-	default:
-		return nil, errInvalidLoggerInstance
-	}
+	_ = "STUB: not implemented"
+	return *new(logger.Logger), nil
 }

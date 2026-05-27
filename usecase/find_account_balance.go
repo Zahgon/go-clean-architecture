@@ -41,22 +41,12 @@ func NewFindBalanceAccountInteractor(
 	presenter FindAccountBalancePresenter,
 	t time.Duration,
 ) FindAccountBalanceUseCase {
-	return findBalanceAccountInteractor{
-		repo:       repo,
-		presenter:  presenter,
-		ctxTimeout: t,
-	}
+	_ = "STUB: not implemented"
+	return *new(FindAccountBalanceUseCase)
 }
 
 // Execute orchestrates the use case
 func (a findBalanceAccountInteractor) Execute(ctx context.Context, ID domain.AccountID) (FindAccountBalanceOutput, error) {
-	ctx, cancel := context.WithTimeout(ctx, a.ctxTimeout)
-	defer cancel()
-
-	account, err := a.repo.FindBalance(ctx, ID)
-	if err != nil {
-		return a.presenter.Output(domain.Money(0)), err
-	}
-
-	return a.presenter.Output(account.Balance()), nil
+	_ = "STUB: not implemented"
+	return *new(FindAccountBalanceOutput), nil
 }

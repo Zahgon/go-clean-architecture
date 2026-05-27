@@ -1,9 +1,9 @@
 package response
 
 import (
-	"encoding/json"
-	"github.com/pkg/errors"
 	"net/http"
+
+	"github.com/pkg/errors"
 )
 
 var (
@@ -17,22 +17,8 @@ type Error struct {
 	Errors     []string `json:"errors"`
 }
 
-func NewError(err error, status int) *Error {
-	return &Error{
-		statusCode: status,
-		Errors:     []string{err.Error()},
-	}
-}
+func NewError(err error, status int) *Error { _ = "STUB: not implemented"; return nil }
 
-func NewErrorMessage(messages []string, status int) *Error {
-	return &Error{
-		statusCode: status,
-		Errors:     messages,
-	}
-}
+func NewErrorMessage(messages []string, status int) *Error { _ = "STUB: not implemented"; return nil }
 
-func (e Error) Send(w http.ResponseWriter) error {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(e.statusCode)
-	return json.NewEncoder(w).Encode(e)
-}
+func (e Error) Send(w http.ResponseWriter) error { _ = "STUB: not implemented"; return nil }

@@ -18,9 +18,7 @@ var (
 
 type AccountID string
 
-func (a AccountID) String() string {
-	return string(a)
-}
+func (a AccountID) String() string { _ = "STUB: not implemented"; return "" }
 
 type (
 	AccountRepository interface {
@@ -41,49 +39,22 @@ type (
 )
 
 func NewAccount(ID AccountID, name, CPF string, balance Money, createdAt time.Time) Account {
-	return Account{
-		id:        ID,
-		name:      name,
-		cpf:       CPF,
-		balance:   balance,
-		createdAt: createdAt,
-	}
+	_ = "STUB: not implemented"
+	return *new(Account)
 }
 
-func (a *Account) Deposit(amount Money) {
-	a.balance += amount
-}
+func (a *Account) Deposit(amount Money) { _ = "STUB: not implemented"; return }
 
-func (a *Account) Withdraw(amount Money) error {
-	if a.balance < amount {
-		return ErrInsufficientBalance
-	}
+func (a *Account) Withdraw(amount Money) error { _ = "STUB: not implemented"; return nil }
 
-	a.balance -= amount
+func (a Account) ID() AccountID { _ = "STUB: not implemented"; return *new(AccountID) }
 
-	return nil
-}
+func (a Account) Name() string { _ = "STUB: not implemented"; return "" }
 
-func (a Account) ID() AccountID {
-	return a.id
-}
+func (a Account) CPF() string { _ = "STUB: not implemented"; return "" }
 
-func (a Account) Name() string {
-	return a.name
-}
+func (a Account) Balance() Money { _ = "STUB: not implemented"; return *new(Money) }
 
-func (a Account) CPF() string {
-	return a.cpf
-}
+func (a Account) CreatedAt() time.Time { _ = "STUB: not implemented"; return *new(time.Time) }
 
-func (a Account) Balance() Money {
-	return a.balance
-}
-
-func (a Account) CreatedAt() time.Time {
-	return a.createdAt
-}
-
-func NewAccountBalance(balance Money) Account {
-	return Account{balance: balance}
-}
+func NewAccountBalance(balance Money) Account { _ = "STUB: not implemented"; return *new(Account) }

@@ -40,22 +40,12 @@ func NewFindAllTransferInteractor(
 	presenter FindAllTransferPresenter,
 	t time.Duration,
 ) FindAllTransferUseCase {
-	return findAllTransferInteractor{
-		repo:       repo,
-		presenter:  presenter,
-		ctxTimeout: t,
-	}
+	_ = "STUB: not implemented"
+	return *new(FindAllTransferUseCase)
 }
 
 // Execute orchestrates the use case
 func (t findAllTransferInteractor) Execute(ctx context.Context) ([]FindAllTransferOutput, error) {
-	ctx, cancel := context.WithTimeout(ctx, t.ctxTimeout)
-	defer cancel()
-
-	transfers, err := t.repo.FindAll(ctx)
-	if err != nil {
-		return t.presenter.Output([]domain.Transfer{}), err
-	}
-
-	return t.presenter.Output(transfers), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }

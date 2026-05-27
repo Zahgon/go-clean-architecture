@@ -5,9 +5,6 @@ import (
 	"time"
 
 	"github.com/gsabadini/go-clean-architecture/domain"
-
-	"github.com/pkg/errors"
-	"go.mongodb.org/mongo-driver/bson"
 )
 
 type transferBSON struct {
@@ -24,63 +21,21 @@ type TransferNoSQL struct {
 }
 
 func NewTransferNoSQL(db NoSQL) TransferNoSQL {
-	return TransferNoSQL{
-		db:             db,
-		collectionName: "transfers",
-	}
+	_ = "STUB: not implemented"
+	return *new(TransferNoSQL)
 }
 
 func (t TransferNoSQL) Create(ctx context.Context, transfer domain.Transfer) (domain.Transfer, error) {
-	transferBSON := &transferBSON{
-		ID:                   transfer.ID().String(),
-		AccountOriginID:      transfer.AccountOriginID().String(),
-		AccountDestinationID: transfer.AccountDestinationID().String(),
-		Amount:               transfer.Amount().Int64(),
-		CreatedAt:            transfer.CreatedAt(),
-	}
-
-	if err := t.db.Store(ctx, t.collectionName, transferBSON); err != nil {
-		return domain.Transfer{}, errors.Wrap(err, "error creating transfer")
-	}
-
-	return transfer, nil
+	_ = "STUB: not implemented"
+	return *new(domain.Transfer), nil
 }
 
 func (t TransferNoSQL) FindAll(ctx context.Context) ([]domain.Transfer, error) {
-	var transfersBSON = make([]transferBSON, 0)
-
-	if err := t.db.FindAll(ctx, t.collectionName, bson.M{}, &transfersBSON); err != nil {
-		return []domain.Transfer{}, errors.Wrap(err, "error listing transfers")
-	}
-
-	var transfers = make([]domain.Transfer, 0)
-
-	for _, transferBSON := range transfersBSON {
-		var transfer = domain.NewTransfer(
-			domain.TransferID(transferBSON.ID),
-			domain.AccountID(transferBSON.AccountOriginID),
-			domain.AccountID(transferBSON.AccountDestinationID),
-			domain.Money(transferBSON.Amount),
-			transferBSON.CreatedAt,
-		)
-
-		transfers = append(transfers, transfer)
-	}
-
-	return transfers, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 func (t TransferNoSQL) WithTransaction(ctx context.Context, fn func(ctxTx context.Context) error) error {
-	session, err := t.db.StartSession()
-	if err != nil {
-		return err
-	}
-	defer session.EndSession(ctx)
-
-	err = session.WithTransaction(ctx, fn)
-	if err != nil {
-		return err
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }

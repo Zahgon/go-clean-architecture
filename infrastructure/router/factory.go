@@ -2,8 +2,9 @@ package router
 
 import (
 	"errors"
-	"github.com/gsabadini/go-clean-architecture/adapter/repository"
 	"time"
+
+	"github.com/gsabadini/go-clean-architecture/adapter/repository"
 
 	"github.com/gsabadini/go-clean-architecture/adapter/logger"
 	"github.com/gsabadini/go-clean-architecture/adapter/validator"
@@ -33,12 +34,6 @@ func NewWebServerFactory(
 	port Port,
 	ctxTimeout time.Duration,
 ) (Server, error) {
-	switch instance {
-	case InstanceGorillaMux:
-		return newGorillaMux(log, dbSQL, validator, port, ctxTimeout), nil
-	case InstanceGin:
-		return newGinServer(log, dbNoSQL, validator, port, ctxTimeout), nil
-	default:
-		return nil, errInvalidWebServerInstance
-	}
+	_ = "STUB: not implemented"
+	return *new(Server), nil
 }

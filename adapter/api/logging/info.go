@@ -11,16 +11,8 @@ type Info struct {
 }
 
 func NewInfo(log logger.Logger, key string, httpStatus int) Info {
-	return Info{
-		log:        log,
-		key:        key,
-		httpStatus: httpStatus,
-	}
+	_ = "STUB: not implemented"
+	return *new(Info)
 }
 
-func (i Info) Log(msg string) {
-	i.log.WithFields(logger.Fields{
-		"key":         i.key,
-		"http_status": i.httpStatus,
-	}).Infof(msg)
-}
+func (i Info) Log(msg string) { _ = "STUB: not implemented"; return }

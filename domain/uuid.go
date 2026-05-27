@@ -1,14 +1,5 @@
 package domain
 
-import (
-	gouuid "github.com/satori/go.uuid"
-)
+func NewUUID() string { _ = "STUB: not implemented"; return "" }
 
-func NewUUID() string {
-	return gouuid.NewV4().String()
-}
-
-func IsValidUUID(uuid string) bool {
-	_, err := gouuid.FromString(uuid)
-	return err == nil
-}
+func IsValidUUID(uuid string) bool { _ = "STUB: not implemented"; return false }

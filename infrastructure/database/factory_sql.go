@@ -15,10 +15,6 @@ const (
 )
 
 func NewDatabaseSQLFactory(instance int) (repository.SQL, error) {
-	switch instance {
-	case InstancePostgres:
-		return NewPostgresHandler(newConfigPostgres())
-	default:
-		return nil, errInvalidSQLDatabaseInstance
-	}
+	_ = "STUB: not implemented"
+	return *new(repository.SQL), nil
 }

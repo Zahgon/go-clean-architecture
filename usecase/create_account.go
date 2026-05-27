@@ -47,30 +47,12 @@ func NewCreateAccountInteractor(
 	presenter CreateAccountPresenter,
 	t time.Duration,
 ) CreateAccountUseCase {
-	return createAccountInteractor{
-		repo:       repo,
-		presenter:  presenter,
-		ctxTimeout: t,
-	}
+	_ = "STUB: not implemented"
+	return *new(CreateAccountUseCase)
 }
 
 // Execute orchestrates the use case
 func (a createAccountInteractor) Execute(ctx context.Context, input CreateAccountInput) (CreateAccountOutput, error) {
-	ctx, cancel := context.WithTimeout(ctx, a.ctxTimeout)
-	defer cancel()
-
-	var account = domain.NewAccount(
-		domain.AccountID(domain.NewUUID()),
-		input.Name,
-		input.CPF,
-		domain.Money(input.Balance),
-		time.Now(),
-	)
-
-	account, err := a.repo.Create(ctx, account)
-	if err != nil {
-		return a.presenter.Output(domain.Account{}), err
-	}
-
-	return a.presenter.Output(account), nil
+	_ = "STUB: not implemented"
+	return *new(CreateAccountOutput), nil
 }

@@ -8,9 +8,11 @@ import (
 type findAccountBalancePresenter struct{}
 
 func NewFindAccountBalancePresenter() usecase.FindAccountBalancePresenter {
-	return findAccountBalancePresenter{}
+	_ = "STUB: not implemented"
+	return *new(usecase.FindAccountBalancePresenter)
 }
 
 func (a findAccountBalancePresenter) Output(balance domain.Money) usecase.FindAccountBalanceOutput {
-	return usecase.FindAccountBalanceOutput{Balance: balance.Float64()}
+	_ = "STUB: not implemented"
+	return *new(usecase.FindAccountBalanceOutput)
 }

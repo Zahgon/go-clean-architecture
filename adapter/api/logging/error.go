@@ -12,18 +12,8 @@ type Error struct {
 }
 
 func NewError(log logger.Logger, err error, key string, httpStatus int) Error {
-	return Error{
-		log:        log,
-		err:        err,
-		key:        key,
-		httpStatus: httpStatus,
-	}
+	_ = "STUB: not implemented"
+	return *new(Error)
 }
 
-func (e Error) Log(msg string) {
-	e.log.WithFields(logger.Fields{
-		"key":         e.key,
-		"error":       e.err.Error(),
-		"http_status": e.httpStatus,
-	}).Errorf(msg)
-}
+func (e Error) Log(msg string) { _ = "STUB: not implemented"; return }
